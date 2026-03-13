@@ -113,7 +113,9 @@ Suggested Break Time → 0.3 hours
 ```
 
 ---
+## Project Preview
 
+![Smart Study Planner](preview.png)
 ## Learning Outcomes
 
 Through this project I learned:
