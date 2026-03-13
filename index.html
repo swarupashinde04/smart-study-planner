@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Smart Study Planner</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Smart Study Planner 📚</h1>
+
+<p>Create a study plan based on your available time.</p>
+
+<form method="POST">
+
+<input type="text" name="subjects" placeholder="Enter subjects (comma separated)" required>
+
+<br><br>
+
+<input type="number" step="any" name="hours" placeholder="Available study hours" required>
+
+<br><br>
+
+<select name="priority">
+
+<option value="high">High Priority Subjects</option>
+<option value="medium">Medium Priority</option>
+<option value="low">Low Priority</option>
+
+</select>
+
+<br><br>
+
+<button type="submit">Generate Plan</button>
+
+</form>
+
+<br>
+
+{% for item in plan %}
+
+<div class="card">
+
+<h3>{{ item.subject }}</h3>
+
+<p>{{ item.time }} hours</p>
+
+<div class="bar">
+
+<div class="progress" style="width:{{ item.time*10 }}%"></div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+{% if break_time %}
+
+<h3>Suggested Break Time: {{ break_time }} hours</h3>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
